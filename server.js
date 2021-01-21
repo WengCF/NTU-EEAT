@@ -7,8 +7,8 @@ import Subscription from "./server/resolvers/Subscription.js";
 const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
-const port1 = process.env.PORT;
-const port2 = process.env.PORT;
+const port1 = process.env.PORT || 80;
+const port2 = process.env.PORT || 80;
 const app = express();
 app.use(express.static(path.join(__dirname, "build")));
 
