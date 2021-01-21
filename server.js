@@ -7,8 +7,8 @@ import Subscription from "./server/resolvers/Subscription.js";
 const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
-const port1 = process.env.PORT || 80;
-const port2 = process.env.PORT || 4000;
+const port1 = process.env.PORT;
+const port2 = process.env.PORT;
 const app = express();
 app.use(express.static(path.join(__dirname, "build")));
 
@@ -26,6 +26,7 @@ app.get("/*", function (req, res) {
 });
 
 app.listen(port1);
+console.log(`The server is up on port ${port1}!`);
 console.log("Server Ready!");
 
 const Restaurant = require("./server/models/restaurant.js");
@@ -66,5 +67,5 @@ db.once("open", () => {
 });
 
 server.start({ port: port2 }, () => {
-  console.log("The server is up on port 4000!");
+  console.log(`The server is up on port ${port2}!`);
 });
